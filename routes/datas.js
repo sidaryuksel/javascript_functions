@@ -1,16 +1,16 @@
 const express = require('express');
 const Data = require('../model/Schema');
-const findAllAggregatedByAuthor =  require('../functions/author');
+const {findAllAggregatedByAuthor} =  require('../functions/author');
 
 const router = express.Router();
 var datas;
 router.get('/', async (req, res) => {
     try {
         datas = await Data.find();
+        findAllAggregatedByAuthor(datas);        
         res.json(datas);
-        findAllAggregatedByAuthor(datas);
     } catch (err) {
-        res.json({ message: err });
+        console.log(err);
     }
     res.send("get datas");
 })
@@ -27,8 +27,6 @@ router.post('/', async (req, res) => {
     } catch (err) {
         res.json({ message: err })
     }
-    //console.log(datas);
-    res.send('done!');
 })
 
 module.exports = router;

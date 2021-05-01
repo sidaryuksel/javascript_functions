@@ -1,14 +1,19 @@
-const findAllAggregatedByAuthor = (datas) => {
+function findAllAggregatedByAuthor(datas) {
     console.log("fonksiyondayim");
-    var dataArrayList = {}
+    var datasMap = new Map();
 
     datas.forEach(data => {
-        dataArrayList[data.author].push(data.post_body);
+        const post = data.post_body;
+
+        if (!datasMap.has(data.author)) {
+            datasMap.set(data.author, new Array());
+        }
+        datasMap.get(data.author).push(post);
     });
-    
-    dataArrayList.forEach(element => {
-        console.log(`${element}'s post bodies are: `,dataArrayList[element]);
-    });
+
+    for (var [key, value] of datasMap) {
+        console.log(`${key}'s post bodies are: `,value);
+    }
 };
 
 exports.findAllAggregatedByAuthor = findAllAggregatedByAuthor;
