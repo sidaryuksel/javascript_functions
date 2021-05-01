@@ -1,0 +1,29 @@
+Sorular
+Ekteki JSON dosyasını kullanarak aşağıdaki metodları yazınız;
+
+Soru 1
+findAllAggregatedByAuthor metodu bütün Postları authora göre gruplayarak listelemeli. Örneğin; findAllAggregatedByAuthor();` aşağıdakine benzer bir JSON sonucu dönmelidir.
+
+{
+    "ela": [...Ela'ya ait postlar...],
+    "lale": [...Lale'ye ait postlar...],
+    ...
+}
+Soru 2
+findByHourlyAggregated metodu saat bazlı gruplama yaparak Postları dönmelidir. Metod hours parametresini almaktadır. Örneğin; findByHourlyAggregated(2); Postlar dateCreated alanına göre 2 saatlik dilimlere ayrılmış olarak listelenmeli ve aşağıdakine benzer bir JSON dönmelidir.
+
+{
+    "2020-08-11_10": [...11 Ağustos saat 10-12 arasında oluşturulmuş postlar...],
+    "2020-08-11_12": [...11 Ağustos saat 12-14 arasında oluşturulmuş postlar...],
+    ...
+}
+Yukarıdaki JSON nesnesinde tarihten türetilen anahtarı (2020-08-11_10 gibi) istediğiniz şekilde biçimlendirebilirsiniz. Timestamp ya da başka kolayınıza gelecek bir biçimde olabilir.
+
+Soru 3
+calculateDayAfter metodu iki parametre alır. day haftanın günlerinin ingilizcesinin ilk üç harfini (Mon, Tue, Wed, Thu, Fri, Sat, Sun), àfter ise hesaplanmak istenen günü sayı olarak alır ve verilen günden itibaren after parametresi kadar sayarak geldiği günü döner. Örneğin, "Mon", 2 parametrelerini aldığında Pazartesi gününün 2 gün sonrasını, Çarşambayı (Wed) dönmelidir.
+
+Örnek girdi ve çıktılar:
+
+"Mon", 3 -> "Thu"
+"Fri", 14 -> "Fri"
+"Tue", 10 - > "Fri"

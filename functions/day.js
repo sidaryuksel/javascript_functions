@@ -1,5 +1,4 @@
- 
-function calculateDayAfter(day, after) {
+ function calculateDayAfter(day, after) {
     var myMap = new Map();
     myMap.set('Mon', 0); myMap.set('Tue', 1); myMap.set('Wed', 2);
     myMap.set('Thu', 3); myMap.set('Fri', 4); myMap.set('Sat', 5); myMap.set('Sun', 6); 
