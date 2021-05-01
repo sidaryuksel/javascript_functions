@@ -1,5 +1,7 @@
 function findAllAggregatedByAuthor(datas) {
-    console.log("fonksiyondayim");
+    console.log("================================================================");
+
+    console.log("------   findAllAggregatedByAuthor  function ------");
     var datasMap = new Map();
 
     datas.forEach(data => {
@@ -12,8 +14,10 @@ function findAllAggregatedByAuthor(datas) {
     });
 
     for (var [key, value] of datasMap) {
-        console.log(`${key}'s post bodies are: `,value);
+        console.log(`${key}'s post bodies are: `, value);
     }
+
+    console.log("================================================================");
 };
 
 exports.findAllAggregatedByAuthor = findAllAggregatedByAuthor;

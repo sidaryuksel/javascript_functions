@@ -1,18 +1,20 @@
 const express = require('express');
 const Data = require('../model/Schema');
 const {findAllAggregatedByAuthor} =  require('../functions/author');
+const {findByHourlyAggregated } = require('../functions/date');
 
 const router = express.Router();
 var datas;
 router.get('/', async (req, res) => {
     try {
         datas = await Data.find();
-        findAllAggregatedByAuthor(datas);        
+        findAllAggregatedByAuthor(datas);
+        const hourRange = 3;
+        findByHourlyAggregated(datas, hourRange);       
         res.json(datas);
     } catch (err) {
-        console.log(err);
+        res.json({message: err});
     }
-    res.send("get datas");
 })
 
 router.post('/', async (req, res) => {
